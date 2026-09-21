@@ -41,60 +41,58 @@ const Hero = () => (
   </section>
 );
 
-const CaseStudiesTable = () => (
-  <section className="px-6 md:px-12 py-16 md:py-24 border-b border-black/10 bg-[#fcfcfc]">
-    <div className="hidden md:flex justify-between items-center text-[10px] uppercase font-bold tracking-widest text-black/40 border-b border-black/10 pb-4 mb-4">
-      <div className="w-1/4">Partner</div>
-      <div className="w-1/4">Platform</div>
-      <div className="w-1/4 text-center">( DUO CASE STUDIES )</div>
-      <div className="w-1/4 text-right">Service</div>
-    </div>
-    <ul className="text-[10px] sm:text-[11px] uppercase font-bold tracking-widest text-[#111] flex flex-col gap-y-4 md:gap-y-0">
-       {[
-          { partner: 'DOCKERS', platform: 'SHOPIFY', label: 'a.', services: 'Integration, Marketing, SEO, CRO, MOR' },
-          { partner: 'CHAMPION', platform: 'SHOPIFY PLUS', label: 'b.', services: 'UX/UI, Dev, Integration, SEO, Marketing' },
-          { partner: 'BENETTON', platform: 'SHOPIFY PLUS', label: 'c.', services: 'UX/UI, Dev, Integration, SEO' },
-          { partner: 'SOTF', platform: 'CUSTOM', label: 'd.', services: 'UX/UI, Brand Direction' },
-          { partner: "MASON'S", platform: 'SHOPIFY PLUS', label: 'e.', services: 'UX/UI, Dev, Integration, SEO' },
-          { partner: 'ROBERTO COLLINA', platform: 'SHOPIFY PLUS', label: 'f.', services: 'UX/UI, Dev, B2C, Marketing' },
-          { partner: 'POLLINI', platform: 'LARAVEL', label: 'g.', services: 'UX/UI, Dev, Integration, SEO, Marketing' },
-          { partner: 'ENGINE', platform: 'SHOPIFY HEADLESS', label: 'h.', services: 'Dev, Marketing, Integration' },
-          { partner: 'ROMBO GROUP', platform: 'SHOPIFY', label: 'i.', services: 'UX/UI, Dev (B2C/B2B), Marketing' },
-          { partner: 'PIER', platform: 'SHOPIFY', label: 'j.', services: 'UX/UI, Dev, Integration, Marketing' },
-       ].map((item, i) => (
-         <motion.li 
-           initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.05 }}
-           key={i} 
-           className="group flex flex-col md:flex-row justify-between md:items-center py-2 md:py-3 md:border-b border-black/5 hover:bg-[#111] hover:text-white transition-colors cursor-pointer md:px-2 md:-mx-2"
-         >
-           <div className="w-full md:w-1/4 mb-1 md:mb-0 flex justify-between md:block">
-             <span className="md:hidden text-black/40 group-hover:text-white/60 transition-colors">Partner</span>
-             {item.partner}
-           </div>
-           <div className="w-full md:w-1/4 mb-2 md:mb-0 text-black/60 md:text-[#111] group-hover:text-white md:group-hover:text-white transition-colors flex justify-between md:block">
-             <span className="md:hidden text-black/40 group-hover:text-white/60 transition-colors">Platform</span>
-             {item.platform}
-           </div>
-           <div className="hidden md:block w-1/4 text-center text-black/40 group-hover:text-white/60 transition-colors font-serif italic lowercase">( {item.label} )</div>
-           <div className="w-full md:w-1/4 md:text-right overflow-hidden whitespace-nowrap text-ellipsis flex justify-between md:block">
-             <span className="md:hidden text-black/40 group-hover:text-white/60 transition-colors">Service</span>
-             <span className="truncate ml-4 md:ml-0">{item.services}</span>
-           </div>
-         </motion.li>
-       ))}
-    </ul>
-  </section>
-);
+// const CaseStudiesTable = () => (
+//   <section className="px-6 md:px-12 py-16 md:py-24 border-b border-black/10 bg-[#fcfcfc]">
+//     <div className="hidden md:flex justify-between items-center text-[10px] uppercase font-bold tracking-widest text-black/40 border-b border-black/10 pb-4 mb-4">
+//       <div className="w-1/4">Partner</div>
+//       <div className="w-1/4">Platform</div>
+//       <div className="w-1/4 text-center">( DUO CASE STUDIES )</div>
+//       <div className="w-1/4 text-right">Service</div>
+//     </div>
+//     <ul className="text-[10px] sm:text-[11px] uppercase font-bold tracking-widest text-[#111] flex flex-col gap-y-4 md:gap-y-0">
+//        {[
+//           { partner: 'DOCKERS', platform: 'SHOPIFY', label: 'a.', services: 'Integration, Marketing, SEO, CRO, MOR' },
+//           { partner: 'CHAMPION', platform: 'SHOPIFY PLUS', label: 'b.', services: 'UX/UI, Dev, Integration, SEO, Marketing' },
+//           { partner: 'BENETTON', platform: 'SHOPIFY PLUS', label: 'c.', services: 'UX/UI, Dev, Integration, SEO' },
+//           { partner: 'SOTF', platform: 'CUSTOM', label: 'd.', services: 'UX/UI, Brand Direction' },
+//           { partner: "MASON'S", platform: 'SHOPIFY PLUS', label: 'e.', services: 'UX/UI, Dev, Integration, SEO' },
+//           { partner: 'ROBERTO COLLINA', platform: 'SHOPIFY PLUS', label: 'f.', services: 'UX/UI, Dev, B2C, Marketing' },
+//           { partner: 'POLLINI', platform: 'LARAVEL', label: 'g.', services: 'UX/UI, Dev, Integration, SEO, Marketing' },
+//           { partner: 'ENGINE', platform: 'SHOPIFY HEADLESS', label: 'h.', services: 'Dev, Marketing, Integration' },
+//           { partner: 'ROMBO GROUP', platform: 'SHOPIFY', label: 'i.', services: 'UX/UI, Dev (B2C/B2B), Marketing' },
+//           { partner: 'PIER', platform: 'SHOPIFY', label: 'j.', services: 'UX/UI, Dev, Integration, Marketing' },
+//        ].map((item, i) => (
+//          <motion.li 
+//            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.05 }}
+//            key={i} 
+//            className="group flex flex-col md:flex-row justify-between md:items-center py-2 md:py-3 md:border-b border-black/5 hover:bg-[#111] hover:text-white transition-colors cursor-pointer md:px-2 md:-mx-2"
+//          >
+//            <div className="w-full md:w-1/4 mb-1 md:mb-0 flex justify-between md:block">
+//              <span className="md:hidden text-black/40 group-hover:text-white/60 transition-colors">Partner</span>
+//              {item.partner}
+//            </div>
+//            <div className="w-full md:w-1/4 mb-2 md:mb-0 text-black/60 md:text-[#111] group-hover:text-white md:group-hover:text-white transition-colors flex justify-between md:block">
+//              <span className="md:hidden text-black/40 group-hover:text-white/60 transition-colors">Platform</span>
+//              {item.platform}
+//            </div>
+//            <div className="hidden md:block w-1/4 text-center text-black/40 group-hover:text-white/60 transition-colors font-serif italic lowercase">( {item.label} )</div>
+//            <div className="w-full md:w-1/4 md:text-right overflow-hidden whitespace-nowrap text-ellipsis flex justify-between md:block">
+//              <span className="md:hidden text-black/40 group-hover:text-white/60 transition-colors">Service</span>
+//              <span className="truncate ml-4 md:ml-0">{item.services}</span>
+//            </div>
+//          </motion.li>
+//        ))}
+//     </ul>
+//   </section>
+// );
 
 const Manifesto = () => (
   <section className="px-6 md:px-12 py-24 md:py-32 bg-[#fcfcfc]">
-    <motion.h2 
+    <motion.h2
       initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants}
       className="text-[28px] md:text-[40px] lg:text-[48px] font-medium tracking-tight leading-[1.05] max-w-[1400px] mb-24 md:mb-32"
     >
-      <motion.span variants={itemVariants}>From concept to launch, we create smart digital solutions that bring ideas to life. </motion.span>
-      <motion.span variants={itemVariants}>By combining strategy, design, and modern development, we build products that are visually engaging, user-focused, and built to perform. </motion.span>
-      <motion.span variants={itemVariants}>Every project is crafted to solve real problems, elevate your brand, and deliver meaningful results in the digital world. </motion.span>
+      <motion.span variants={itemVariants}>From <span className="font-bold text-black/50">"just an idea"</span> to <span className="font-bold text-[#111]">"wait, we made this?!"</span> we mix strategy, design, and development to create digital products that don't just look good, <span className="font-bold italic text-[#111]">they perform.</span></motion.span>
     </motion.h2>
 
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mt-24">
@@ -193,7 +191,6 @@ const Showreel = () => (
 export const Home = () => (
   <main className="bg-[#fcfcfc] text-[#111]">
     <Hero />
-    <CaseStudiesTable />
     <Manifesto />
     <FadingText />
     <Showreel />

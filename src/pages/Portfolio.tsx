@@ -20,14 +20,14 @@ const portfolioItems = [
     span: 'md:col-span-4',
     aspect: 'aspect-[3/4]',
     partner: 'Champion',
-    services: 'eCommerce Development, Design UX / UI, System Integration, Custom App, Performance Marketing'
+    services: 'eCommerce Development, Design UX / UI, Custom Systems, Web Development'
   },
   {
     img: 'https://images.unsplash.com/photo-1621570074981-ee6a0145c8b5?q=80&w=2070&auto=format&fit=crop',
     span: 'md:col-span-8',
     aspect: 'aspect-[21/9]',
     partner: 'Benetton',
-    services: 'eCommerce Development, Design UX / UI, System Integration, Custom App, SEO, Tech Architecture'
+    services: 'eCommerce Development, Design UX / UI, Custom Systems, Web Development'
   },
   // Row 2
   {
@@ -35,21 +35,21 @@ const portfolioItems = [
     span: 'md:col-span-4',
     aspect: 'aspect-square',
     partner: 'Sotf',
-    services: 'Design UX / UI'
+    services: 'Design UX / UI, Graphic Designs'
   },
   {
     img: 'https://images.unsplash.com/photo-1480455624313-e23b44b2a390?q=80&w=2070&auto=format&fit=crop',
     span: 'md:col-span-4',
     aspect: 'aspect-[4/5]',
     partner: "Mason's",
-    services: 'eCommerce Development, Design UX / UI, System Integration, Custom App, Tech Architecture'
+    services: 'eCommerce Development, Design UX / UI, Custom Systems, Web Development'
   },
   {
     img: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=2076&auto=format&fit=crop',
     span: 'md:col-span-4',
     aspect: 'aspect-[3/4]',
     partner: 'Roberto Collina',
-    services: 'eCommerce Development, Design UX / UI, System Integration, Performance Marketing, SEO, Data Analysis, Tech Architecture'
+    services: 'eCommerce Development, Design UX / UI, Custom Systems, Web Development'
   },
   // Row 3
   {
@@ -57,14 +57,14 @@ const portfolioItems = [
     span: 'md:col-span-4',
     aspect: 'aspect-[9/16]',
     partner: 'Aura',
-    services: 'Design UX / UI, Custom App, Data Analysis'
+    services: 'Design UX / UI, Custom Systems, Graphic Designs'
   },
   {
     img: 'https://images.unsplash.com/photo-1584328591636-b87332152914?q=80&w=2070&auto=format&fit=crop',
     span: 'md:col-span-8',
     aspect: 'aspect-[16/9]',
     partner: '8pm',
-    services: 'eCommerce Development, Design UX / UI, System Integration, Custom App, Performance Marketing, SEO, Data Analysis, Tech Architecture'
+    services: 'eCommerce Development, Design UX / UI, Custom Systems, Web Development'
   },
   // Row 4
   {
@@ -72,14 +72,36 @@ const portfolioItems = [
     span: 'md:col-span-6',
     aspect: 'aspect-[4/3]',
     partner: 'Kunci',
-    services: 'eCommerce Development, Design UX / UI, System Integration, Custom App, Performance Marketing, SEO, Data Analysis, Tech Architecture'
+    services: 'eCommerce Development, Design UX / UI, Custom Systems, Web Development'
   },
   {
     img: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1974&auto=format&fit=crop',
     span: 'md:col-span-6',
     aspect: 'aspect-[4/3]',
     partner: 'Pollini',
-    services: 'eCommerce Development, Design UX / UI, System Integration, Custom App, SEO, Data Analysis, Tech Architecture'
+    services: 'eCommerce Development, Design UX / UI, Custom Systems, Web Development'
+  },
+  // Additional Web Development & Graphic Designs Projects
+  {
+    img: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2069&auto=format&fit=crop',
+    span: 'md:col-span-4',
+    aspect: 'aspect-[4/5]',
+    partner: 'TechFlow',
+    services: 'Web Development, Custom Systems'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2070&auto=format&fit=crop',
+    span: 'md:col-span-4',
+    aspect: 'aspect-square',
+    partner: 'BrandVision',
+    services: 'Graphic Designs, Design UX / UI'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop',
+    span: 'md:col-span-4',
+    aspect: 'aspect-[3/4]',
+    partner: 'CreativeStudio',
+    services: 'Graphic Designs, Design UX / UI'
   }
 ];
 
@@ -92,7 +114,7 @@ export const Portfolio = () => {
     setVisibleCount(5);
   }, [selectedFilter]);
 
-  const allServices = ['All', ...Array.from(new Set(portfolioItems.flatMap(item => item.services.split(', ')))).sort()];
+  const allServices = ['All', 'Custom Systems', 'Design UX / UI', 'Web Development', 'eCommerce Development', 'Graphic Designs'];
   
   const filteredItems = selectedFilter === 'All' 
     ? portfolioItems 
@@ -113,15 +135,24 @@ export const Portfolio = () => {
         <div>Advanced Tech</div>
       </div>
       
-      <motion.h1 
+      <motion.h1
         initial={{ opacity: 0, y: 60, filter: 'blur(20px)', scale: 0.95 }}
         animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
         transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         className="text-[32px] md:text-[48px] lg:text-[72px] leading-[1.05] tracking-tight font-medium mb-12"
       >
-        We shape commerce with a clear scalable vision blending <span className="text-black/40 font-light">Web Development, Design UX / UI, System Integration, Custom App, Performance Marketing, SEO, Data Analysis, Tech Architecture</span> and everything your brand needs to grow.
+        We turn <span className="font-bold text-black/50">"just a brand"</span> into <span className="font-bold text-[#111]">"the brand."</span>
       </motion.h1>
-      
+
+      <motion.p
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        className="text-[20px] md:text-[28px] lg:text-[36px] leading-[1.3] tracking-tight font-medium mb-16 max-w-5xl"
+      >
+        UI/UX. Development. Integration. Strategy. Everything it takes to grow shaped into one seamless vision.
+      </motion.p>
+
       <motion.div variants={itemVariants} className="flex flex-wrap gap-4 md:gap-6 font-bold text-lg md:text-xl lg:text-2xl tracking-tight">
         {allServices.map(service => (
           <button 

@@ -55,11 +55,11 @@ export const Contact = () => (
           >
             <motion.div variants={itemVariants} className="group border-b border-black/20 pb-4 focus-within:border-black transition-colors">
               <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-black/40 block mb-2 origin-left transform transition-all duration-300 group-focus-within:-translate-y-1 group-focus-within:scale-110 group-focus-within:text-[#111]">Your Name</label>
-              <input type="text" className="w-full bg-transparent text-lg md:text-xl font-medium focus:outline-none placeholder:text-black/20" placeholder="John Doe" />
+              <input type="text" className="w-full bg-transparent text-lg md:text-xl font-medium focus:outline-none placeholder:text-black/20" placeholder="Dhyan Bhashitha" />
             </motion.div>
             <motion.div variants={itemVariants} className="group border-b border-black/20 pb-4 focus-within:border-black transition-colors">
               <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-black/40 block mb-2 origin-left transform transition-all duration-300 group-focus-within:-translate-y-1 group-focus-within:scale-110 group-focus-within:text-[#111]">Email Address</label>
-              <input type="email" className="w-full bg-transparent text-lg md:text-xl font-medium focus:outline-none placeholder:text-black/20" placeholder="john@example.com" />
+              <input type="email" className="w-full bg-transparent text-lg md:text-xl font-medium focus:outline-none placeholder:text-black/20" placeholder="dhyan@example.com" />
             </motion.div>
             <motion.div variants={itemVariants} className="group border-b border-black/20 pb-4 focus-within:border-black transition-colors">
               <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-black/40 block mb-2 origin-left transform transition-all duration-300 group-focus-within:-translate-y-1 group-focus-within:scale-110 group-focus-within:text-[#111]">Project Details</label>
