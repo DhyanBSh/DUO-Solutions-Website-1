@@ -1,6 +1,171 @@
+import { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+type Particle = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  radius: number;
+};
+
+const HeroParticles = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pointerRef = useRef({ x: 0, y: 0, active: false });
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const context = canvas?.getContext('2d');
+    if (!canvas || !context) return;
+
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const particles: Particle[] = [];
+    let width = 0;
+    let height = 0;
+    let frame = 0;
+
+    const resize = () => {
+      const bounds = canvas.getBoundingClientRect();
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      width = bounds.width;
+      height = bounds.height;
+      canvas.width = Math.round(width * pixelRatio);
+      canvas.height = Math.round(height * pixelRatio);
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+      const count = Math.min(150, Math.max(48, Math.round((width * height) / 8500)));
+      particles.length = 0;
+      for (let index = 0; index < count; index += 1) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 0.08 + Math.random() * 0.16;
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          radius: 0.8 + Math.random() * 1.2,
+        });
+      }
+      draw();
+    };
+
+    const draw = () => {
+      context.clearRect(0, 0, width, height);
+      const pointer = pointerRef.current;
+      const linkDistance = 142;
+
+      for (let index = 0; index < particles.length; index += 1) {
+        const particle = particles[index];
+
+        if (!mediaQuery.matches) {
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+
+          if (particle.x < 0 || particle.x > width) particle.vx *= -1;
+          if (particle.y < 0 || particle.y > height) particle.vy *= -1;
+
+          if (pointer.active) {
+            const dx = particle.x - pointer.x;
+            const dy = particle.y - pointer.y;
+            const distance = Math.hypot(dx, dy);
+            if (distance > 0 && distance < 150) {
+              const force = ((150 - distance) / 150) * 0.045;
+              particle.vx += (dx / distance) * force;
+              particle.vy += (dy / distance) * force;
+              particle.vx *= 0.985;
+              particle.vy *= 0.985;
+            }
+          }
+        }
+
+        for (let otherIndex = index + 1; otherIndex < particles.length; otherIndex += 1) {
+          const other = particles[otherIndex];
+          const distance = Math.hypot(particle.x - other.x, particle.y - other.y);
+          if (distance < linkDistance) {
+            context.beginPath();
+            context.moveTo(particle.x, particle.y);
+            context.lineTo(other.x, other.y);
+            context.strokeStyle = `rgba(35, 45, 55, ${(1 - distance / linkDistance) * 0.13})`;
+            context.lineWidth = 0.7;
+            context.stroke();
+          }
+        }
+
+        if (pointer.active) {
+          const distance = Math.hypot(particle.x - pointer.x, particle.y - pointer.y);
+          if (distance < 178) {
+            context.beginPath();
+            context.moveTo(particle.x, particle.y);
+            context.lineTo(pointer.x, pointer.y);
+            context.strokeStyle = `rgba(35, 45, 55, ${(1 - distance / 178) * 0.2})`;
+            context.lineWidth = 0.8;
+            context.stroke();
+          }
+        }
+
+        context.beginPath();
+        context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        context.fillStyle = 'rgba(35, 45, 55, 0.34)';
+        context.fill();
+      }
+
+      if (pointer.active) {
+        const glow = context.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 170);
+        glow.addColorStop(0, 'rgba(120, 135, 150, 0.055)');
+        glow.addColorStop(1, 'rgba(120, 135, 150, 0)');
+        context.fillStyle = glow;
+        context.fillRect(pointer.x - 170, pointer.y - 170, 340, 340);
+      }
+    };
+
+    const animate = () => {
+      draw();
+      frame = window.requestAnimationFrame(animate);
+    };
+
+    const handlePointerMove = (event: PointerEvent) => {
+      const bounds = canvas.getBoundingClientRect();
+      const x = event.clientX - bounds.left;
+      const y = event.clientY - bounds.top;
+      pointerRef.current = {
+        x,
+        y,
+        active: x >= 0 && x <= bounds.width && y >= 0 && y <= bounds.height,
+      };
+      if (mediaQuery.matches) draw();
+    };
+
+    const handlePointerLeave = () => {
+      pointerRef.current.active = false;
+      if (mediaQuery.matches) draw();
+    };
+
+    const handleMotionChange = () => {
+      window.cancelAnimationFrame(frame);
+      if (!mediaQuery.matches) frame = window.requestAnimationFrame(animate);
+      else draw();
+    };
+
+    resize();
+    window.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('pointerleave', handlePointerLeave);
+    window.addEventListener('resize', resize);
+    mediaQuery.addEventListener('change', handleMotionChange);
+    if (!mediaQuery.matches) frame = window.requestAnimationFrame(animate);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('pointerleave', handlePointerLeave);
+      window.removeEventListener('resize', resize);
+      mediaQuery.removeEventListener('change', handleMotionChange);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full" />;
+};
 
 const sectionVariants = {
   hidden: { opacity: 0 },
@@ -14,15 +179,7 @@ const itemVariants = {
 
 const Hero = () => (
   <section className="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden bg-[#fcfcfc] mt-0 pt-20">
-    <motion.img 
-      initial={{ scale: 1.2, opacity: 0, filter: 'blur(20px)' }}
-      animate={{ scale: 1, opacity: 0.2, filter: 'blur(0px)' }}
-      transition={{ duration: 3, ease: [0.22, 1, 0.36, 1] }}
-      src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
-      alt="Hero Background"
-      className="absolute inset-0 w-full h-full object-cover grayscale"
-      referrerPolicy="no-referrer"
-    />
+    <HeroParticles />
     <div className="relative z-10 flex flex-col items-center w-full h-full px-6 md:px-12 pb-12">
       <motion.h1 
         initial={{ opacity: 0, y: 60, filter: 'blur(20px)', scale: 0.95 }}
