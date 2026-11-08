@@ -40,10 +40,8 @@ export const Footer = () => (
       <ul className="space-y-6 text-xs font-semibold uppercase tracking-wider text-[#111]">
         <li className="hover:opacity-50 transition-opacity cursor-pointer">Web Development</li>
         <li className="hover:opacity-50 transition-opacity cursor-pointer">UI/UX Design</li>
-        <li className="hover:opacity-50 transition-opacity cursor-pointer">Logo Design</li>
-        <li className="hover:opacity-50 transition-opacity cursor-pointer">Poster Design</li>
-        <li className="hover:opacity-50 transition-opacity cursor-pointer">Visiting Card</li>
-        <li className="hover:opacity-50 transition-opacity cursor-pointer">Graphic Design</li>
+        <li className="hover:opacity-50 transition-opacity cursor-pointer">Branding</li>
+        <li className="hover:opacity-50 transition-opacity cursor-pointer">Creative Design</li>
       </ul>
     </motion.div>
 

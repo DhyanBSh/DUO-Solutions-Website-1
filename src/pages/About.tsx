@@ -25,11 +25,6 @@ export const About = () => {
         initial="hidden" animate="visible" variants={sectionVariants}
         className="max-w-7xl mx-auto relative z-10"
       >
-        <div className="flex justify-between items-start text-[10px] uppercase tracking-widest font-bold text-black/50 mb-20 md:mb-32">
-          <motion.div variants={itemVariants}>Brand Direction</motion.div>
-          <motion.div variants={itemVariants} className="hidden md:block">Performance Marketing</motion.div>
-          <motion.div variants={itemVariants}>Advanced Tech</motion.div>
-        </div>
         
         <motion.h1
           variants={itemVariants}
@@ -54,7 +49,7 @@ export const About = () => {
               DUO started in 2026 with a simple purpose: build quality digital products, on time, every time. No excuses, no shortcuts.
             </p>
             <p>
-              Whether you're a small team with a big idea or an enterprise running large scale projects, we bring the same level of care and craftsmanship to every build. We don't do dull, cookie cutter systems we create digital experiences that are as unique as the brands behind them.
+              If you're a small team with a big idea, we bring the same level of care and craftsmanship to every build. We don't do dull, cookie cutter systems we create digital experiences that are as unique as the brands behind them.
             </p>
             <p>
               DUO wasn't born from a manifesto or a theory. It came from something real a genuine drive to build, to stand out, <span className="font-bold text-[#111]">to rise.</span> The will to <span className="font-bold">make something that matters,</span> to leave a mark, and to prove things can be done better. <span className="font-bold text-[#111]">Differently. Truly.</span>
@@ -66,7 +61,7 @@ export const About = () => {
           </motion.div>
           <motion.div variants={itemVariants} className="md:col-span-6 flex flex-col gap-8 text-xl md:text-2xl font-medium tracking-tight text-[#111] leading-[1.4]">
             <p>
-              And it takes shape within a team built not on similarity, but on tension. Designers, creatives, developers, strategists. People who come from opposite worlds yet coexist in balance. Because it is there at the intersection between vision and structure that the difference is made.
+              And it takes shape within a team built not on similarity, but on tension. Designers, creatives, developers. People who come from different worlds yet coexist in balance. Because it is there at the intersection between vision and structure that the difference is made.
             </p>
             <p>
               The true strength of DUO lies precisely in this: a harmony of diverse tensions. Between those who imagine and those who bring ideas to life. Between those who break the rules and those who rebuild them better.

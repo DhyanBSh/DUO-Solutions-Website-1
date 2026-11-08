@@ -114,7 +114,7 @@ export const Portfolio = () => {
     setVisibleCount(5);
   }, [selectedFilter]);
 
-  const allServices = ['All', 'Custom Systems', 'Design UX / UI', 'Web Development', 'eCommerce Development', 'Graphic Designs'];
+  const allServices = ['All', 'Custom Systems', 'UI / UX Design ', 'Web Development', 'Creative Designs'];
   
   const filteredItems = selectedFilter === 'All' 
     ? portfolioItems 
@@ -129,20 +129,8 @@ export const Portfolio = () => {
       initial="hidden" animate="visible" variants={sectionVariants}
       className="mb-24 md:mb-32 max-w-7xl mx-auto"
     >
-      <div className="flex justify-between items-start text-[10px] uppercase tracking-widest font-bold text-black/50 mb-12">
-        <div>Brand Direction</div>
-        <div>Digital Strategy</div>
-        <div>Advanced Tech</div>
-      </div>
       
-      <motion.h1
-        initial={{ opacity: 0, y: 60, filter: 'blur(20px)', scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
-        transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-        className="text-[32px] md:text-[48px] lg:text-[72px] leading-[1.05] tracking-tight font-medium mb-12"
-      >
-        We turn <span className="font-bold text-black/50">"just a brand"</span> into <span className="font-bold text-[#111]">"the brand."</span>
-      </motion.h1>
+     
 
       <motion.p
         initial={{ opacity: 0, y: 40 }}
@@ -150,7 +138,7 @@ export const Portfolio = () => {
         transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className="text-[20px] md:text-[28px] lg:text-[36px] leading-[1.3] tracking-tight font-medium mb-16 max-w-5xl"
       >
-        UI/UX. Development. Integration. Strategy. Everything it takes to grow shaped into one seamless vision.
+        UI/UX. Development. Integration. Strategy. <br></br>Everything it takes to grow shaped into one seamless vision.
       </motion.p>
 
       <motion.div variants={itemVariants} className="flex flex-wrap gap-4 md:gap-6 font-bold text-lg md:text-xl lg:text-2xl tracking-tight">
