@@ -144,44 +144,51 @@ const Showreel = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleMouseEnter = () => {
-    videoRef.current?.play();
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
   };
 
   const handleMouseLeave = () => {
-    videoRef.current?.pause();
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
   };
 
   return (
     <section className="px-6 md:px-12 pb-24 md:pb-32 bg-[#fcfcfc]">
-      <a
-        href="/portfolio"
-        aria-label="View portfolio"
-        className="block w-full"
+      <div
+        className="w-full relative aspect-[3/4] md:aspect-video bg-black/5 overflow-hidden group cursor-pointer"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="group relative aspect-[3/4] md:aspect-video w-full cursor-pointer overflow-hidden bg-black/5">
-          <video
-            ref={videoRef}
-            src="/Home Video.mp4"
-            className="h-full w-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0"
-            loop
-            muted
-            playsInline
-          />
+        <div className="absolute top-6 left-6 z-10 text-[10px] font-bold uppercase tracking-widest text-white mix-blend-difference opacity-70">
+          00:02:30
+        </div>
+        <div className="absolute top-6 right-6 z-10 text-[10px] font-bold uppercase tracking-widest text-white mix-blend-difference opacity-70 text-right">
+          60fps<br/>Res: 1920x1080
+        </div>
 
-          <div className="absolute bottom-6 left-6 z-10 flex w-full flex-col gap-4 pr-12 md:flex-row md:items-center md:gap-8">
-            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white mix-blend-difference transition-opacity group-hover:opacity-50">
-              View Portfolio
-              <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-            </div>
+        <video
+          ref={videoRef}
+          src="/MainVideoWithAudio.mp4"
+          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
+          loop
+          muted
+        />
 
-            <div className="text-[10px] font-bold uppercase tracking-widest text-white opacity-70 mix-blend-difference md:absolute md:right-12">
-              DUO Solutions
-            </div>
+        <div className="absolute bottom-6 left-6 flex-col md:flex-row flex md:items-center gap-4 md:gap-8 z-10 w-full pr-12">
+          <div className="text-[10px] font-bold uppercase tracking-widest text-white mix-blend-difference flex items-center gap-2 group-hover:opacity-50 transition-opacity">
+            Play Showreel <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 px-4 py-1 border border-white/30 backdrop-blur-sm text-[9px] font-bold uppercase tracking-widest text-white">
+            04. AI CONTENT CREATION
+          </div>
+          <div className="md:absolute right-12 text-[10px] font-bold uppercase tracking-widest text-white mix-blend-difference opacity-70">
+            DUO©2026_SHOWREEL.MP4
           </div>
         </div>
-      </a>
+      </div>
     </section>
   );
 };
