@@ -20,13 +20,13 @@ export const Footer = () => (
       <div>
         <img src="/DUO Logo.png" alt="DUO Logo" className="h-12 w-auto mb-8" />
       </div>
-      <div className="mt-16 text-[10px] uppercase tracking-[0.2em] font-bold text-black/40">
+      <div className="mt-16 text-[12px] uppercase tracking-[0.2em] font-bold text-black/40">
         © 2026 DUO.
       </div>
     </motion.div>
     
     <motion.div variants={itemVariants} className="p-10 md:p-16 lg:p-24">
-      <h4 className="text-[10px] uppercase tracking-[0.2em] font-bold text-black/40 mb-10 border-b border-black/10 pb-6">Quick Links</h4>
+      <h4 className="text-[12px] uppercase tracking-[0.2em] font-bold text-black/40 mb-10 border-b border-black/10 pb-6">Quick Links</h4>
       <ul className="space-y-6 text-xs font-semibold uppercase tracking-wider text-[#111]">
         <li><Link to="/" className="hover:opacity-50 transition-opacity hover:translate-x-1 inline-block transform duration-300">Home</Link></li>
         <li><Link to="/services" className="hover:opacity-50 transition-opacity hover:translate-x-1 inline-block transform duration-300">Services</Link></li>
@@ -36,7 +36,7 @@ export const Footer = () => (
     </motion.div>
 
     <motion.div variants={itemVariants} className="p-10 md:p-16 lg:p-24">
-      <h4 className="text-[10px] uppercase tracking-[0.2em] font-bold text-black/40 mb-10 border-b border-black/10 pb-6">Services</h4>
+      <h4 className="text-[12px] uppercase tracking-[0.2em] font-bold text-black/40 mb-10 border-b border-black/10 pb-6">Services</h4>
       <ul className="space-y-6 text-xs font-semibold uppercase tracking-wider text-[#111]">
         <li className="hover:opacity-50 transition-opacity cursor-pointer">Web Development</li>
         <li className="hover:opacity-50 transition-opacity cursor-pointer">UI/UX Design</li>
@@ -47,7 +47,7 @@ export const Footer = () => (
 
     <motion.div variants={itemVariants} className="p-10 md:p-16 lg:p-24 flex flex-col justify-between">
       <div>
-        <h4 className="text-[10px] uppercase tracking-[0.2em] font-bold text-black/40 mb-10 border-b border-black/10 pb-6">Contact</h4>
+        <h4 className="text-[12px] uppercase tracking-[0.2em] font-bold text-black/40 mb-10 border-b border-black/10 pb-6">Contact</h4>
         <ul className="space-y-6 text-sm font-light text-[#111]">
           <li className="group">
             <a href="mailto:build.with.duo@gmail.com" className="flex items-center hover:opacity-50 transition-opacity">

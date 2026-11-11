@@ -56,33 +56,30 @@ export const Services = () => {
       {/* Page 1: Hero Image & Abstract Introduction */}
       <motion.section initial="hidden" animate="visible" variants={sectionVariants} className="pt-24 md:pt-32">
         
-        <div className="px-6 md:px-12 text-center mb-24 md:mb-24">
-          {/* <motion.h2 variants={itemVariants} className="text-[28px] md:text-[40px] lg:text-[48px] font-medium tracking-tight mb-12">
-            Design. Technology. Marketing. Real digital presence connects them all.
-          </motion.h2> */}  
+        <div className="px-6 md:px-12 text-center mt-8 md:mt-0 pt-4 md:pt-4 mb-24 md:mb-24">
 
           {/* Scrolling Services Description */}
           <div className="relative overflow-hidden py-4">
             <motion.div
               animate={{ x: [0, -2000] }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="flex gap-8 whitespace-nowrap text-[13px] uppercase font-bold tracking-widest text-black/40"
+              className="flex gap-16 whitespace-nowrap text-[14px] uppercase font-bold tracking-widest text-black/40"
             >
-              <span>UI/UX & Experience Design  —</span>
-              <span>Wireframing & Prototyping  —</span>
-              <span>User Research & Testing  —</span>
-              <span>Custom Web Development  —</span>
-              <span>E-commerce Development  —</span>
-              <span>Visual Production  —</span>
-              <span>Marketing Graphics  —</span>
-              {/* Duplicate for seamless loop */}
-              <span>UI/UX & Experience Design  —</span>
-              <span>Wireframing & Prototyping  —</span>
-              <span>User Research & Testing  —</span>
-              <span>Custom Web Development  —</span>
-              <span>E-commerce Development  —</span>
-              <span>Visual Production  —</span>
-              <span>Marketing Graphics  —</span>
+                  <span>UI/UX Design</span>
+                  <span>Wireframing & Prototyping  —</span>
+                  <span>User Research & Testing  —</span>
+                  <span>Custom Web Development  —</span>
+                  <span>E-commerce Development  —</span>
+                  <span>Visual Production  —</span>
+                  <span>Creative Design  —</span>
+                  {/* Duplicate for seamless loop */}
+                  <span>UI/UX & Experience Design  —</span>
+                  <span>Wireframing & Prototyping  —</span>
+                  <span>User Research & Testing  —</span>
+                  <span>Custom Web Development  —</span>
+                  <span>E-commerce Development  —</span>
+                  <span>Visual Production  —</span>
+                  <span>Creative Design  —</span>
             </motion.div>
           </div>
         </div>
@@ -100,11 +97,11 @@ export const Services = () => {
 >
   <motion.h2
     variants={itemVariants}
-    className="text-[48px] sm:text-[64px] md:text-[8vw] lg:text-[7vw] xl:text-[110px] leading-[1] tracking-tighter uppercase font-bold text-[#111]"
+    className="text-[48px] sm:text-[64px] md:text-[8vw] lg:text-[7vw] xl:text-[110px] leading-[1] tracking-tighter  font-bold text-[#65c52b]"
   >
-    <span className="text-black/40">AN </span> END-TO-END ECOSYSTEM<br />
-    <span className="text-black/40">DESIGNED TO</span> SCALE, PERFORM AND
-    INTEGRATE <span className="text-black/40">SEAMLESSLY.</span>
+    <span className="text-black/50">An </span> End-to-end ecosystem<br />
+    <span className="text-black/50">designed to</span> <span className="text-black">Scale, Perform and Integrate </span>
+    <span className="text-black/50">seamlessly.</span>
   </motion.h2>
 </motion.section>
 

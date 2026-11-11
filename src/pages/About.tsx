@@ -23,7 +23,7 @@ export const About = () => {
 
       <motion.section 
         initial="hidden" animate="visible" variants={sectionVariants}
-        className="max-w-7xl mx-auto relative z-10"
+        className="max-w-7xl mx-auto relative z-10 mt-8 md:mt-0 pt-4 md:pt-4"
       >
         
         <motion.h1
@@ -40,7 +40,7 @@ export const About = () => {
           variants={itemVariants}
           className="text-xl md:text-2xl lg:text-3xl font-medium leading-[1.3] tracking-tight mb-32 md:mb-48 max-w-4xl"
         >
-          <span className="font-bold text-black/50">Aim:</span> Deliver high quality, on time digital products that help brands stand out <span className="font-bold text-[#111]">differently, truly.</span>
+          <span className="font-bold text-black/50">Aim:</span> Deliver <span className="font-bold text-[#65c52b]">high quality, on time digital products</span> that help brands stand out <span className="font-bold text-[#111]">differently, truly.</span>
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-24">
@@ -52,7 +52,7 @@ export const About = () => {
               If you're a small team with a big idea, we bring the same level of care and craftsmanship to every build. We don't do dull, cookie cutter systems we create digital experiences that are as unique as the brands behind them.
             </p>
             <p>
-              DUO wasn't born from a manifesto or a theory. It came from something real a genuine drive to build, to stand out, <span className="font-bold text-[#111]">to rise.</span> The will to <span className="font-bold">make something that matters,</span> to leave a mark, and to prove things can be done better. <span className="font-bold text-[#111]">Differently. Truly.</span>
+              DUO wasn't born from a manifesto or a theory. It came from something real, a genuine drive to build, to stand out, to rise. The will to <span className="font-bold">make something that matters,</span> to leave a mark, and to prove things can be done better. <span className="font-bold text-[#111]">Differently. Truly.</span>
             </p>
             <p>
               That spark is where everything begins and it's still what drives us today.

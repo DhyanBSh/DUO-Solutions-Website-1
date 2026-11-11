@@ -47,8 +47,8 @@ export const Navbar = () => {
             to="/contact"
             className={`flex py-4 border group px-6 text-[10px] uppercase tracking-widest font-bold transition-colors items-center gap-2 ${
               isActive('/contact')
-                ? 'bg-[#111] text-white border-[#111]'
-                : 'border-[#111] text-[#111] hover:bg-[#111] hover:text-white'
+                ? 'bg-[#73f333] text-black border-[#111]'
+                : 'bg-[#111] border-[#111] text-[#fff] hover:bg-[#73f333] hover:text-black'
             }`}
           >
             Contact Us

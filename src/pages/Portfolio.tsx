@@ -123,11 +123,11 @@ export const Portfolio = () => {
   const visibleItems = filteredItems.slice(0, visibleCount);
 
   return (
-    <main className="pt-32 pb-24 md:pt-40 md:pb-32 px-6 md:px-12 bg-[#fcfcfc] min-h-screen text-[#111] overflow-hidden">
+    <main className="pt-32 pb-24 md:pt-40 md:pb-32 px-6 md:px-12 bg-[#fcfcfc] min-h-screen text-[#111] overflow-x-clip">
       {/* Header Section mimicking PDF layout */}
       <motion.section 
       initial="hidden" animate="visible" variants={sectionVariants}
-      className="mb-24 md:mb-32 max-w-7xl mx-auto"
+      className="max-w-7xl mx-auto"
     >
       
      
@@ -136,12 +136,15 @@ export const Portfolio = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="text-[20px] md:text-[28px] lg:text-[36px] leading-[1.3] tracking-tight font-medium mb-16 max-w-5xl"
+        className="text-[20px] md:text-[28px] lg:text-[36px] leading-[1.3] tracking-tight font-medium mt-8 md:mt-0 pt-4 md:pt-4 mb-16 max-w-5xl"
       >
-        UI/UX. Development. Integration. Strategy. <br></br>Everything it takes to grow shaped into one seamless vision.
+        <span className="font-bold text-[#65c52b]">UI/UX. Development. Integration. Strategy.</span> <br></br>Everything it takes to grow shaped into one seamless vision.
       </motion.p>
 
-      <motion.div variants={itemVariants} className="flex flex-wrap gap-4 md:gap-6 font-bold text-lg md:text-xl lg:text-2xl tracking-tight">
+    </motion.section>
+
+    <div className="sticky top-[128px] md:top-[72px] z-40 max-w-7xl mx-auto mb-24 md:mb-32 py-4 bg-[#fcfcfc]/95 backdrop-blur-md">
+      <motion.div initial="hidden" animate="visible" variants={itemVariants} className="flex flex-wrap gap-4 md:gap-6 font-bold text-lg md:text-xl lg:text-2xl tracking-tight">
         {allServices.map(service => (
           <button 
             key={service}
@@ -152,7 +155,7 @@ export const Portfolio = () => {
           </button>
         ))}
       </motion.div>
-    </motion.section>
+    </div>
 
     {/* Portfolio Masonry Grid */}
     <motion.section 
